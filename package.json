@@ -4,7 +4,9 @@
   "description": "A discord bot for Rythmhacks",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cmdsDev": "ENV=dev node ./src/updateCommands.js",
+    "cmdsProd": "ENV=prod node ./src/updateCommands.js"
   },
   "repository": {
     "type": "git",
