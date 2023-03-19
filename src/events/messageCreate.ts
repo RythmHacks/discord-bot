@@ -13,7 +13,11 @@ interface QA {
 const qa: QA[] = [
     {
         question: /^(?=.*(rythmhacks|hackathon))(?=.*(start|begin)).*$/gim,
-        answer: "Rythmhacks will be on <t:1691121600:D> (<t:1691121600:R>)",
+        answer: "RythmHacks will be on <t:1691121600:D> (<t:1691121600:R>)",
+    },
+    {
+        question: /^(?=.*(rythmhacks|hackathon))(?=.*(where|location)).*$/gim,
+        answer: "Stay tuned for the venue!",
     },
 ];
 

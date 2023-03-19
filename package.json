@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cmdsDev": "ENV=dev node ./src/updateCommands.js",
-    "cmdsProd": "ENV=prod node ./src/updateCommands.js"
+    "cmdsDev": "ENV=dev node ./src/scripts/updateCommands.js",
+    "cmdsProd": "ENV=prod node ./src/scripts/updateCommands.js"
   },
   "repository": {
     "type": "git",

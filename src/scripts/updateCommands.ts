@@ -3,14 +3,14 @@ import {
     Routes,
     RESTPostAPIChatInputApplicationCommandsJSONBody,
 } from "discord.js";
-import { Command } from "./types/commandData";
+import { Command } from "../types/commandData";
 import { config } from "dotenv";
 import { readdirSync } from "fs";
 import { join } from "path";
 
 config();
 
-const commandsDir = join(__dirname, "commands");
+const commandsDir = join(__dirname, "../commands");
 const commandFiles = readdirSync(commandsDir).filter((file) =>
     file.endsWith(".js")
 );
