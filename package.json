@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "build": "tsc",
+    "build": "npm i && tsc",
     "cmdsDev": "ENV=dev node ./src/scripts/updateCommands.js",
     "cmdsProd": "ENV=prod node ./src/scripts/updateCommands.js"
   },
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/RythmHacks/discord-bot#readme",
   "dependencies": {
     "discord.js": "^14.8.0",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "typescript": "^5.0.2"
   }
 }
