@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "build": "npm i && tsc",
+    "build": "tsc",
     "cmdsDev": "ENV=dev node ./src/scripts/updateCommands.js",
     "cmdsProd": "ENV=prod node ./src/scripts/updateCommands.js"
   },
