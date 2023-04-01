@@ -23,7 +23,10 @@
   "dependencies": {
     "discord.js": "^14.8.0",
     "dotenv": "^16.0.3",
-    "node-fetch": "^3.3.1",
+    "node-fetch": "^2.6.9",
     "typescript": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.3"
   }
 }
