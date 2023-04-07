@@ -1,10 +1,4 @@
-import {
-    Client,
-    Collection,
-    Events,
-    GatewayIntentBits,
-    BaseInteraction,
-} from "discord.js";
+import { Client, Collection, GatewayIntentBits, Partials } from "discord.js";
 import { Command } from "./types/commandData";
 import { EventData } from "./types/eventData";
 import { CustomClient } from "./types/misc";
@@ -20,7 +14,9 @@ const client: CustomClient = new Client({
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMessageReactions,
     ],
+    partials: [Partials.Message, Partials.Channel, Partials.Reaction],
 });
 
 const eventsDir = join(__dirname, "events");
@@ -40,6 +36,7 @@ for (const file of eventsFiles) {
 }
 
 client.commands = new Collection();
+client.cooldowns = new Collection();
 
 const commandsDir = join(__dirname, "commands");
 const commandFiles = readdirSync(commandsDir).filter((file) =>
@@ -56,6 +53,9 @@ for (const file of commandFiles) {
         console.log(
             `wtf man ${commandPath} doesn't have a data or execute property you nerd`
         );
+    }
+    if ("cooldown" in command) {
+        client.cooldowns.set(command.data.name, new Collection());
     }
 }
 

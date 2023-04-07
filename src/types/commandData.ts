@@ -1,6 +1,7 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 
 export interface Command {
-    data: SlashCommandBuilder
-    execute: (interaction: ChatInputCommandInteraction) => void
+    data: SlashCommandBuilder;
+    cooldown?: number;
+    execute: (interaction: ChatInputCommandInteraction) => void;
 }

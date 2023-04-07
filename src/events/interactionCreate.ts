@@ -1,4 +1,4 @@
-import { Events, BaseInteraction } from "discord.js";
+import { Events, BaseInteraction, Collection } from "discord.js";
 import { Command } from "../types/commandData";
 import { CustomClient } from "../types/misc";
 
@@ -10,11 +10,13 @@ module.exports = {
             return;
         }
 
+        const client: CustomClient = interaction.client;
         const command: Command | undefined = <Command | undefined>(
-            (interaction.client as CustomClient)?.commands?.get(
-                interaction.commandName
-            )
+            client?.commands?.get(interaction.commandName)
         );
+        const cooldowns: Collection<string, number> = client?.cooldowns?.get(
+            command!.data!.name
+        ) as Collection<string, number>;
 
         if (!command) {
             console.error(
@@ -22,9 +24,31 @@ module.exports = {
             );
             return;
         }
+        const now = Date.now();
+
+        if (cooldowns?.has(interaction.user.id)) {
+            const userTimestamp = cooldowns?.get(interaction.user.id);
+            if (now - (userTimestamp ?? 0) * 1000 < (command?.cooldown ?? 0)) {
+                return await interaction.reply(
+                    `The ${
+                        command.data.name
+                    } command is on cooldown. Try again <t:${~~(
+                        ((command?.cooldown ?? 0) * 1000 -
+                            (now - (userTimestamp ?? 0)) +
+                            now) /
+                        1000
+                    )}:R>`
+                );
+            }
+        }
 
         try {
             await command.execute(interaction);
+            cooldowns.set(interaction.user.id, now);
+            setTimeout(
+                () => cooldowns.delete(interaction.user.id),
+                (command.cooldown ?? 0) * 1000
+            );
         } catch (err) {
             console.error(err);
             if (interaction.replied || interaction.deferred) {
