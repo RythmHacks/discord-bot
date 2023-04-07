@@ -13,7 +13,7 @@ module.exports = {
     async execute(client: Client) {
         console.log(`ready nerd ${client?.user?.tag}`);
         // change this to update the faq message (yeah probably a dumb way to do this)
-        if (true) {
+        if (false && process.env.ENV !== "prod") {
             (
                 (await client.channels.fetch(
                     "1064681828335767633"
