@@ -13,7 +13,7 @@ module.exports = {
     async execute(client: Client) {
         console.log(`ready nerd ${client?.user?.tag}`);
         // change this to update the faq message (yeah probably a dumb way to do this)
-        if (false) {
+        if (true) {
             (
                 (await client.channels.fetch(
                     "1064681828335767633"
@@ -24,6 +24,7 @@ module.exports = {
                         title: "Frequently Asked Questions",
                         description:
                             "Please select a question below. If you can't find your question, feel free to ask at <#1063665997166428270>",
+                        color: 0x5981a2,
                     },
                 ],
                 components: [
