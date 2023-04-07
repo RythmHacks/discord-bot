@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/RythmHacks/discord-bot#readme",
   "dependencies": {
+    "@supabase/supabase-js": "^2.15.0",
     "discord.js": "^14.8.0",
     "dotenv": "^16.0.3",
     "node-fetch": "^2.6.9",

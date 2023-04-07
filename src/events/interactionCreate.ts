@@ -54,11 +54,13 @@ module.exports = {
 
             try {
                 await command.execute(interaction);
-                cooldowns.set(interaction.user.id, now);
-                setTimeout(
-                    () => cooldowns.delete(interaction.user.id),
-                    (command.cooldown ?? 0) * 1000
-                );
+                if (cooldowns) {
+                    cooldowns.set(interaction.user.id, now);
+                    setTimeout(
+                        () => cooldowns.delete(interaction.user.id),
+                        (command.cooldown ?? 0) * 1000
+                    );
+                }
             } catch (err) {
                 console.error(err);
                 if (interaction.replied || interaction.deferred) {
