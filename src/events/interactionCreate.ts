@@ -2,8 +2,6 @@ import {
     Events,
     BaseInteraction,
     Collection,
-    MessagePayload,
-    MessageReplyOptions,
     InteractionReplyOptions,
 } from "discord.js";
 import { Command } from "../types/commandData";
