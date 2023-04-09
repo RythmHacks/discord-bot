@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
-    "@types/node-fetch": "^2.6.3"
+    "@types/node-fetch": "^2.6.3",
+    "supabase": "^1.49.4"
   }
 }

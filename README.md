@@ -9,6 +9,13 @@
 5. Copy everything in `.env.template` and put it in `.env`, filling in the missing values
 6. Write some code and run `node .` to start the bot
 
+### Getting database types
+1. Run `npx supabase login`
+2. Put in your login stuff
+3. Run `npx supabase projects list`
+4. Find the correct project and copy the ID
+5. Run `npx supabase gen types typescript --project-id <ID> > ./src/types/database.ts`
+
 ### Updating/deleting slash commands
 
 For updating slash commands, the npm scripts `cmdsDev` and `cmdsProd` have been conveniently created for this very purpose. Simply run `npm run cmdsDev` or `npm run cmdsProd` to update the guild and global slash commands respectively
