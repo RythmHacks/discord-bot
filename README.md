@@ -3,13 +3,13 @@
 ## How to contribute
 
 1. Clone the repo
-2. In a terminal in the project directory, run `npm i`
-3. Run `tsc -w` to start the typescript compiler
-4. Create a file in the project root directory called `.env`
-5. Copy everything in `.env.template` and put it in `.env`, filling in the missing values
-6. Write some code and run `node .` to start the bot
+2. In a terminal in the project directory, run `npm run init`
+3. Create a file in the project root directory called `.env`
+4. Copy everything in `.env.template` and put it in `.env`, filling in the missing values
+5. Write some code and run `node .` to start the bot
 
 ### Getting database types
+
 1. Run `npx supabase login`
 2. Put in your login stuff
 3. Run `npx supabase projects list`

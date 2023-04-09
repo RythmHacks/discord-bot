@@ -1,4 +1,3 @@
 .env
 node_modules/
 *.js
-src/types/database.ts

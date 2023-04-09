@@ -8,7 +8,8 @@
     "start": "node .",
     "build": "tsc",
     "cmdsDev": "ENV=dev node ./src/scripts/updateCommands.js",
-    "cmdsProd": "ENV=prod node ./src/scripts/updateCommands.js"
+    "cmdsProd": "ENV=prod node ./src/scripts/updateCommands.js",
+    "init": "npm install && git update-index --skip-worktree ./src/types/database.ts && tsc -w"
   },
   "repository": {
     "type": "git",
