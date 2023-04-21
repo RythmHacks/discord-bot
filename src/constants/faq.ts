@@ -26,6 +26,18 @@ const qa: QA[] = [
         match: /^(?=.*(rythmhacks|hackathon))(?=.*(where|location)).*$/gim,
         answer: "Stay tuned for the venue!",
     },
+    {
+        id: "teamSize",
+        question: "How large can my team be?",
+        match: /^(?=.*(team))(?=.*(size)).*$/gim,
+        answer: "Teams can be a maximum of 4 people",
+    },
+    {
+        id: "uniStudents",
+        question: "Can university students/undergraduates participate?",
+        match: /^.*((university student)|(undergraduate)).*$/gim,
+        answer: "Unfortunately, university students and undergraduates are not allowed to attend",
+    },
 ];
 
 export default qa;
