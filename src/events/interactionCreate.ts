@@ -7,6 +7,7 @@ import {
 import { Command } from "../types/commandData";
 import { CustomClient } from "../types/misc";
 import qa from "../constants/faq";
+import supabase from "../supabase";
 
 module.exports = {
     name: Events.InteractionCreate,
@@ -75,9 +76,30 @@ module.exports = {
             }
         } else if (interaction.isStringSelectMenu()) {
             if (interaction.customId === "faq") {
-                let answer = qa.find(
-                    (pair) => pair.id === interaction.values[0]
-                )!.answer;
+                let pair = qa.find((pair) => pair.id === interaction.values[0]);
+                let answer = pair!.answer;
+
+                let { data, error } = await supabase
+                    .from("faq")
+                    .select()
+                    .eq("id", pair!.id);
+
+                if (error) {
+                    console.error(error);
+                    return;
+                }
+
+                ({ error } = await supabase.from("faq").upsert({
+                    id: pair!.id,
+                    timesAsked:
+                        data && data.length > 0 ? data[0].timesAsked + 1 : 1,
+                }));
+
+                if (error) {
+                    console.error(error);
+                    return;
+                }
+
                 interaction.reply(
                     typeof answer === "string"
                         ? { content: answer, ephemeral: true }
