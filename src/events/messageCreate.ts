@@ -12,6 +12,9 @@ module.exports = {
     name: Events.MessageCreate,
     once: false,
     async execute(message: Message) {
+        if (message.author.bot) {
+            return;
+        }
         // Automatic FAQ
         if (
             message.channel.id === "1063665997166428270" ||
