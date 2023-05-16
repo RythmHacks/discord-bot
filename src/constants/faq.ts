@@ -29,7 +29,7 @@ const qa: QA[] = [
     {
         id: "teamSize",
         question: "How large can my team be?",
-        match: /^(?=.*(team))(?=.*(size)).*$/gim,
+        match: /^(?=.*(team))(?=.*(size|big|large)).*$/gim,
         answer: "Teams can be a maximum of 4 people",
     },
     {
