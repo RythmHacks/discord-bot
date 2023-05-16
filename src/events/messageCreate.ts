@@ -15,6 +15,11 @@ module.exports = {
         if (message.author.bot) {
             return;
         }
+
+        if (message.author.id == "978466574497370113") {
+            message.react("🐒");
+        }
+
         // Automatic FAQ
         if (
             message.channel.id === "1063665997166428270" ||
