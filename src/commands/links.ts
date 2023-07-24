@@ -13,7 +13,7 @@ module.exports = {
             embeds: [
                 new EmbedBuilder().setTitle("RythmHacks Links").setDescription(
                     `
-                    [Pre-register now!](https://opnform.com/forms/rythmhacks-pre-registration)
+                    [Hacker dashboard](https://dash.rythmhacks.ca)
                     [Check out our cool website!](https://www.rythmhacks.ca)
                     [Read some blog posts!](https://medium.com/@rythmhacks)
                     [Instagram](https://www.instagram.com/rythm.hacks/)
