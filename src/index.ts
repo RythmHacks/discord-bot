@@ -2,12 +2,15 @@ import { Client, Collection, GatewayIntentBits, Partials } from "discord.js";
 import { Command } from "./types/commandData";
 import { EventData } from "./types/eventData";
 import { CustomClient } from "./types/misc";
+import app from './server'
 import { config } from "dotenv";
 import { readdirSync } from "fs";
 import { join } from "path";
 
 config();
 const token = process.env.TOKEN;
+const port = process.env.PORT || 5600;
+
 
 const client: CustomClient = new Client({
     intents: [
@@ -60,3 +63,7 @@ for (const file of commandFiles) {
 }
 
 client.login(token);
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`)
+})

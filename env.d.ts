@@ -4,7 +4,9 @@ declare global {
             SUPABASEKEY: string;
             UNSPLASHKEY: string;
             TOKEN: string;
-            CLIENTID: sring;
+            CLIENTID: string;
+            CLIENTSECRET: string;
+            PORT: number,
             ENV?: "prod" | "dev";
         }
     }
