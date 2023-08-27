@@ -1,5 +1,4 @@
 import express, { NextFunction, Request, Response } from 'express';
-import cors from 'cors'
 import createHttpError from 'http-errors';
 import fetch from 'node-fetch';
 import supabase from './supabase';
