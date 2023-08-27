@@ -82,9 +82,10 @@ app.post('/join-discord', async (req: Request, res: Response, next: NextFunction
             })
         })
 
-        const accessToken = (await tokenResponse.json()).access_token
+        const json = await tokenResponse.json()
+        const accessToken = json.access_token
         if (tokenResponse.status === 400) {
-            return next(createHttpError(400, 'Invalid code: ' + JSON.stringify(tokenResponse)))
+            return next(createHttpError(400, 'Invalid code: ' + tokenResponse))
         }
         else if (!tokenResponse.ok || !accessToken) {
             throw createHttpError(tokenResponse.status, 'Failed to fetch access token from Discord.')
