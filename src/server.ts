@@ -115,12 +115,6 @@ app.post('/join-discord', async (req: Request, res: Response, next: NextFunction
         })
 
         if (addMemberResponse.status === 201) {
-            await supabase.auth.admin.updateUserById(supabase_user_id, {
-                user_metadata: {
-                    ...user_metadata,
-                    'joined_discord': true
-                }
-            })
             res.status(201).send({
                 status: 201,
                 message: 'User successfully added to Discord server.'
