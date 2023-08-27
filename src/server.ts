@@ -78,7 +78,7 @@ app.post('/join-discord', async (req: Request, res: Response, next: NextFunction
                 'client_secret': process.env.CLIENTSECRET,
                 'grant_type': 'authorization_code',
                 'code': code,
-                'redirect_uri': 'http://localhost:5173/dashboard/discord'
+                'redirect_uri': 'http://dash.rythmhacks.ca/dashboard/discord'
             })
         })
 
