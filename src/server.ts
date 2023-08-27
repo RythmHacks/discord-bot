@@ -14,8 +14,8 @@ const app = express();
 app.use(function (req, res, next) {
     const corsWhitelist = [
         'http://localhost:5173',
-        'http://dash.rythmhacks.ca',
-        'http://dash-rythmhacks-ca.vercel.app'
+        'https://dash.rythmhacks.ca',
+        'https://dash-rythmhacks-ca.vercel.app'
     ]
     if (corsWhitelist.includes(req.headers.origin || '')) {
         res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '');
