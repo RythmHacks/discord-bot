@@ -12,7 +12,14 @@ interface ResponseError extends Error {
 const app = express();
 
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    const corsWhitelist = [
+        'http://localhost:5173',
+        'http://dash.rythmhacks.ca',
+        'http://dash-rythmhacks.vercel.app'
+    ]
+    if (corsWhitelist.includes(req.headers.origin || '')) {
+        res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '');
+    }
     res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
